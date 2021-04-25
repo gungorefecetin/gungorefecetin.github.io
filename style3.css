@@ -1,0 +1,313 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.bg-dark-blue {
+    background:#003153;
+}
+
+.heading-medium {
+    font-size: 1.5rem;
+}
+
+.op {
+	opacity: 0.85;
+}
+
+.btn {
+    margin-top: 1rem;
+    padding: 0.75rem 2.75rem;
+    border-radius: 8px;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background: #336ea2;
+    color: white;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.btn-primary:hover {
+    background: white;
+    color: #336ea2;
+    border: 0.5px solid #336ea2;
+}
+
+.btn-dark {
+    background: #003153;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.btn-dark:hover {
+    color: #003153;
+    background: white;
+    border: 0.5px solid #003153;
+}
+
+html {
+    font-family: "Merriweather", sans-serif;
+}
+
+nav {
+    background: #003153;
+    height: 70px;
+    width: 100%;
+}
+
+label.logo {
+	color: white;
+	font-size: 25px;
+	line-height: 70px;
+	padding: 0 100px;
+	font-weight: bold;
+}
+
+/**/
+nav ul {
+	float: right;
+	margin-right: 50px;
+} 
+/**/
+
+nav ul li {
+	display: inline-block;
+	line-height: 70px;
+	margin-right: 0 5px;
+}
+
+nav ul li a {
+	color: white;
+	font-size: 16px;
+	padding: 7px;
+	border-radius: 3px;
+	text-transform: uppercase;
+	clear: right;
+}
+
+a:hover {
+	background: #336ea2;
+	transition: .5s;
+
+}
+
+.checkbtn {
+	font-size: 30px;
+	color: white;
+	float: right;
+	line-height: 70px;
+	margin-right: 40px;
+	cursor: pointer;
+	display: none;
+}
+
+#check {
+	display: none;
+}
+
+@media (max-width: 952px) {
+	label.logo {
+		font-size: 30px;
+		padding-left: 50px;
+	}
+
+	nav ul li a {
+		font-size: 16px;
+	}
+}
+
+@media (max-width: 878px) {
+	.checkbtn {
+		display: block;
+	}
+
+	nav ul {
+		position: absolute;
+		top: 70px;
+		text-align: center;
+		width: 100%;
+		display: none;
+		background: #2c3e50;
+	}
+
+	nav ul li {
+		display: block;
+	}
+
+	#check:checked ~ ul {
+		display: block;
+	}
+
+	.btn-primary {
+		font-size: 0.89rem;
+	}
+}
+
+/* HOME */
+
+#home {
+	display: flex;
+	flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#home img {
+    padding: 1.1rem;
+    max-width: 100%;
+    height: auto;
+    border-radius: 100%;
+    margin-top: 0.9rem;
+}
+
+#home .name h2 {
+	font-size: 1.65rem;
+	margin-bottom: 0.6rem;
+}
+
+#home .name h3 {
+	font-size: 1rem;
+	opacity: 0.8;
+	margin-bottom: 0.9rem;
+}
+
+
+#home .name p {
+	opacity: 0.6;
+	font-style: italic;
+	padding: 0.3rem;
+}
+
+#home .last {
+	margin-bottom: 0.75rem;
+}
+
+#home .last1 {
+	margin-bottom: 2rem;
+}
+
+#about img {
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+    padding-top: 0.2rem;
+    width: 100%;
+}
+
+#about .abname {
+	color: white;
+}
+
+#about .abab {
+    padding: 0.2rem;
+    opacity: 0.9;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.35rem;
+    font-style:oblique;
+    line-height: 1.7;
+}
+
+#interests img {
+	border: 0.2px solid;
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+	margin-left: 2rem;
+}
+
+#interests .ints {
+	color: white;
+}
+
+#interests ul {
+	margin-top: 1rem;
+}
+
+#interests p {
+	opacity: 0.9;
+	padding: 0.2rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.35rem;
+    font-style:oblique;
+    line-height: 1.7;
+}
+
+.form-group {
+    padding: 0.25rem 0;
+}
+
+.form-group label {
+    display: block;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.4rem;
+    font-size: 1rem;
+    resize: none;
+    border-radius: 5px;
+}
+
+#contact {
+    color: white;
+    padding: 1rem;
+}
+
+#contact .contact-form {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#contact .contact-form ul {
+    list-style-type: none;
+    display: flex;
+    margin-top: 0.8rem;
+    align-self: center;
+    margin-bottom: 1rem;
+}
+
+#contact .contact-form ul li a {
+	color: white;
+    padding: 1rem;
+    font-size: 2.5rem;
+    border-radius: 3px;
+}
+
+
+#contact .contact-form ul li a:hover{
+    opacity: 0.8;
+    transition: .5s;
+}
+
+.btns {
+    margin-top: 1.25rem;
+    padding: 0.8rem 3rem;
+    border-radius: 8px;
+    letter-spacing: 0.5px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}
+
+.btn-submit {
+    background: #336ea2;
+    color: white;
+    margin-bottom: 1.5rem;
+}
+
+.btn-submit:hover {
+    background: white;
+    color: #336ea2;
+    border: 0.5px solid #336ea2;
+    transition: .5s;
+}
