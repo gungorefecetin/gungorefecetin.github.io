@@ -2,24 +2,33 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    list-style: none;
+    scroll-behavior: smooth;
     text-decoration: none;
 }
 
+html {
+    font-family: "Merriweather", sans-serif;
+}
+
+body {
+background: white;
+min-height: 100vh;
+}
+
+header {
+position: fixed;
+top: 0;
+right: 0;
+display: flex;
+justify-content: space-between;
+width: 100%;
+background: white;
+box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+z-index: 1000;
+}
+
 .text-center {
-	text-align: center;
-}
-
-.bg-dark-blue {
-    background:#003153;
-}
-
-.heading-medium {
-    font-size: 1.5rem;
-}
-
-.op {
-	opacity: 0.85;
+text-align: center;
 }
 
 .btn {
@@ -30,7 +39,7 @@
 }
 
 .btn-primary {
-    background: #336ea2;
+    background: #003153;
     color: white;
     margin-bottom: 1.5rem;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
@@ -38,120 +47,144 @@
 
 .btn-primary:hover {
     background: white;
-    color: #336ea2;
-    border: 0.5px solid #336ea2;
-}
-
-.btn-dark {
-    background: #003153;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-}
-
-.btn-dark:hover {
     color: #003153;
-    background: white;
     border: 0.5px solid #003153;
 }
 
-html {
-    font-family: "Merriweather", sans-serif;
+.op {
+	opacity: 0.85;
 }
 
-nav {
-    background: #003153;
-    height: 70px;
-    width: 100%;
+.bg-dark-blue {
+    background:#003153;
 }
 
-label.logo {
-	color: white;
-	font-size: 25px;
-	line-height: 70px;
-	padding: 0 100px;
-	font-weight: bold;
+.heading-medium {
+    font-size: 1.5rem;
 }
 
-/**/
-nav ul {
-	float: right;
-	margin-right: 50px;
-} 
-/**/
-
-nav ul li {
-	display: inline-block;
-	line-height: 70px;
-	margin-right: 0 5px;
+.logo {
+height: 70px;
+line-height: 70px;
+color: #003153;
+font-weight: bold;
+font-size: 2em;
+cursor: pointer;
+padding-left: 30px;
 }
 
-nav ul li a {
-	color: white;
-	font-size: 16px;
-	padding: 7px;
-	border-radius: 3px;
-	text-transform: uppercase;
-	clear: right;
+#toggle {
+position: absolute;
+top: 0;
+right: 0;
+width: 70px;
+height: 70px;
+background: #003153;
+cursor: pointer;
+display: flex;
+justify-content: center;
+align-items: center;
+transition: .5s;
 }
 
-a:hover {
-	background: #336ea2;
-	transition: .5s;
-
+#toggle::before {
+content: '';
+position: absolute;
+width: 28px;
+height: 2px;
+background: white;
+transform: translateY(-5px);
+transition: .2s;
 }
 
-.checkbtn {
-	font-size: 30px;
-	color: white;
-	float: right;
-	line-height: 70px;
-	margin-right: 40px;
-	cursor: pointer;
-	display: none;
+#toggle::after {
+content: '';
+position: absolute;
+width: 28px;
+height: 2px;
+background: white;
+transform: translateY(5px);
+transition: .2s;
 }
 
-#check {
-	display: none;
+#toggle.active::before {
+transform: translateY(0px) rotate(45deg);
 }
 
-@media (max-width: 952px) {
-	label.logo {
-		font-size: 30px;
-		padding-left: 50px;
-	}
-
-	nav ul li a {
-		font-size: 16px;
-	}
+#toggle.active::after {
+transform: translateY(0px) rotate(-45deg);
 }
 
-@media (max-width: 878px) {
-	.checkbtn {
-		display: block;
-	}
-
-	nav ul {
-		position: absolute;
-		top: 70px;
-		text-align: center;
-		width: 100%;
-		display: none;
-		background: #2c3e50;
-	}
-
-	nav ul li {
-		display: block;
-	}
-
-	#check:checked ~ ul {
-		display: block;
-	}
-
-	.btn-primary {
-		font-size: 0.89rem;
-	}
+#toggle.active {
+background: #f7226a;
 }
 
-/* HOME */
+#navbar {
+position: relative;
+height: 70px;
+right: 70px;
+background: white;
+transition: .5s;
+width: 0px;
+overflow: hidden;
+}
+
+#navbar.active {
+width: 477px;
+}
+
+#navbar ul {
+position: relative;
+display: flex;
+flex-direction: row;
+}
+
+#navbar ul li {
+list-style: none;
+}
+
+#navbar ul li a {
+color: #003153;
+height: 70px;
+line-height: 70px;
+display: inline-block;
+font-size: 1.2em;
+padding: 0 25px;
+letter-spacing: 1px;  
+}
+
+#navbar ul li a:hover {
+color: white;
+background: #003153;
+}  
+
+/*@media (max-width: 720px)* bundan büyük iken 878'e kadar yukarıdakiler, 878-sonsuz arası normal ama 952'de logo padding ve font büyüt*/
+
+@media (max-width: 880px) {
+
+    #navbar {
+        position: fixed;
+        bottom: -100%;
+        right: 0;
+        width: 100%;
+        transition: .5s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #navbar.active {
+        height: calc(100vh - 70px);
+        bottom: 0;
+        width: 100%;
+    }
+
+    #navbar ul {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
 
 #home {
 	display: flex;
@@ -165,7 +198,7 @@ a:hover {
     max-width: 100%;
     height: auto;
     border-radius: 100%;
-    margin-top: 0.9rem;
+    margin-top: calc(70px + 0.9rem);
 }
 
 #home .name h2 {
@@ -187,7 +220,7 @@ a:hover {
 }
 
 #home .last {
-	margin-bottom: 0.75rem;
+	margin-bottom: 0.5rem;
 }
 
 #home .last1 {
@@ -238,6 +271,7 @@ a:hover {
     font-style:oblique;
     line-height: 1.7;
 }
+
 
 .form-group {
     padding: 0.25rem 0;
@@ -303,6 +337,7 @@ a:hover {
     background: #336ea2;
     color: white;
     margin-bottom: 1.5rem;
+    cursor: pointer;
 }
 
 .btn-submit:hover {
