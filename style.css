@@ -49,6 +49,8 @@ text-align: center;
     background: white;
     color: #003153;
     border: 0.5px solid #003153;
+    transition: .3s;
+
 }
 
 .op {
